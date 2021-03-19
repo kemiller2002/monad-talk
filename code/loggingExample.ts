@@ -40,3 +40,13 @@ const addAndDivideWithLogging = compose(divideWithLogging, addWithLogging);
 const addAndDivide = compose(divideByTwo, addTwoNumbers);
 
 console.log(addAndDivideWithLogging(Writer.unit([54, 30])));
+
+function addAndDivde() {
+  const added = addTwoNumbers([54, 30]);
+  console.log("added 2 numbers");
+  const divided = divideByTwo(added);
+  console.log(divided);
+  return divided;
+}
+
+console.log(addAndDivde());
