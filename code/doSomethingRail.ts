@@ -1,6 +1,12 @@
-function validateAddress(address) {}
-function createAddressEntity(addressEntity) {}
-function sendToAddress(addressEntity) {}
+function validateAddress(address): boolean {
+  return true;
+}
+function createAddressEntity(addressEntity): {} {
+  return {};
+}
+function sendToAddress(addressEntity): boolean {
+  return true;
+}
 
 interface Object {
   pipe<TIn, TOut>(fn: (x: TIn) => TOut): TOut;

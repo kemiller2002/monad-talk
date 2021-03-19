@@ -1,20 +1,3 @@
-type numbers = [number, number];
-function addTwoNumbers(numbers: numbers): number {
-  const [a, b] = numbers;
-  return a + b;
-}
-
-function divideByTwo(n: number) {
-  return n / 2;
-}
-
-function compose<TInput, TMiddle, TOutput>(
-  f: (i: TMiddle) => TOutput,
-  g: (i: TInput) => TMiddle
-): (i: TInput) => TOutput {
-  return (i) => f(g(i));
-}
-
 class Writer<T> {
   constructor(public value: T, public statements: string[]) {}
 
@@ -29,6 +12,24 @@ class Writer<T> {
   static unit<T>(item: T): Writer<T> {
     return new Writer(item, []);
   }
+}
+
+type numbers = [number, number];
+
+function addTwoNumbers(numbers: numbers): number {
+  const [a, b] = numbers;
+  return a + b;
+}
+
+function divideByTwo(n: number) {
+  return n / 2;
+}
+
+function compose<TInput, TMiddle, TOutput>(
+  f: (i: TMiddle) => TOutput,
+  g: (i: TInput) => TMiddle
+): (i: TInput) => TOutput {
+  return (i) => f(g(i));
 }
 
 const addWithLogging = Writer.bind(addTwoNumbers, "adding two numbers");
